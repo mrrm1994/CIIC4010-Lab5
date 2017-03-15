@@ -81,6 +81,12 @@ public class MyMouseAdapter extends MouseAdapter {
 						} else {
 							//On the grid other than on the left column and on the top row:
 							Color newColor = null;
+							
+							Color a = myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY];
+							
+							do
+							{
+								
 							switch (generator.nextInt(5)) {
 							case 0:
 								newColor = Color.YELLOW;
@@ -98,6 +104,8 @@ public class MyMouseAdapter extends MouseAdapter {
 								newColor = new Color(0xB57EDC);   //Lavender (from http://simple.wikipedia.org/wiki/List_of_colors)
 								break;
 							}
+							}while(a.equals(newColor));
+								
 							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
 							myPanel.repaint();
 						}
